@@ -7,8 +7,8 @@ VERSION = 0.8.2
 PREFIX = /usr/local
 MANPREFIX = $(PREFIX)/share/man
 
-X11INC = /usr/X11R6/include
-X11LIB = /usr/X11R6/lib
+X11INC = /usr/include/X11
+X11LIB = /usr/lib
 
 PKG_CONFIG = pkg-config
 
@@ -22,7 +22,7 @@ LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft \
 
 # flags
 STCPPFLAGS = -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600
-STCFLAGS = $(INCS) $(STCPPFLAGS) $(CPPFLAGS) $(CFLAGS)
+STCFLAGS = $(INCS) $(STCPPFLAGS) $(CPPFLAGS) -O3 -mtune=skylake 
 STLDFLAGS = $(LIBS) $(LDFLAGS)
 
 # OpenBSD:
